@@ -1,0 +1,282 @@
+{
+  "EncoderSeconds": 327.98766939999996,
+  "SamplerSeconds": 990.5830093999994,
+  "DecoderSeconds": 101.96260129999973,
+  "TotalSeconds": 1420.533280099999,
+  "VideoSeconds": 1.625,
+  "Width": 256,
+  "Height": 256,
+  "Frames": 39,
+  "FPS": 24,
+  "Execution": "Vulkan hybrid encoder; CPU reference sampling and decoding",
+  "FullyGPUNative": false,
+  "SpeedGoalMet": false,
+  "hardware": {
+    "device": "Lenovo Legion Go 2",
+    "cpu": "AMD Ryzen Z2 Extreme",
+    "cores": 8,
+    "threads": 16,
+    "gpu": "AMD Radeon 890M",
+    "driver": "32.0.23033.5002",
+    "os": "Windows 11 Home 10.0.26200",
+    "visible_ram_bytes": 33597804544,
+    "bios_uma_changed": false
+  },
+  "upstream_freevideo_commit": "050e7a75bb6ad2ffb810df497c6a739689229940",
+  "kernel_tests": {
+    "passed": 9,
+    "skipped": 0
+  },
+  "fp32_real_ff_check": {
+    "scope": "Real FF block, FP32 arithmetic; not video quality parity",
+    "max_error": 0.00225830078125,
+    "mean_error": 2.6627092665876262e-05,
+    "relative_rms": 2.3185036752693122e-06,
+    "finite": true,
+    "statistics": {
+      "vulkan": {
+        "device": "Vulkan0",
+        "matmul_calls": 2,
+        "wall_seconds": 2.0869767000003776,
+        "transfer_bytes": 1089994752,
+        "peak_buffer_bytes": 721158144,
+        "host_backed": true
+      },
+      "gpu_operators": {
+        "aten.linear.default": 2
+      },
+      "cpu_operators": {
+        "aten.chunk.default": 1,
+        "aten.silu.default": 1,
+        "aten.mul.Tensor": 1,
+        "aten.dropout.default": 1
+      },
+      "hybrid_execution": true
+    }
+  },
+  "cached_ff_check": {
+    "scope": "Real FF block only; not video generation",
+    "seconds": [
+      1.9020596000000296,
+      1.6095437999997557,
+      1.4787506000002395
+    ],
+    "cached_output_identical": true,
+    "statistics": {
+      "vulkan": {
+        "device": "Vulkan0",
+        "matmul_calls": 6,
+        "wall_seconds": 4.859779399999752,
+        "transfer_bytes": 867041280,
+        "peak_buffer_bytes": 558759936,
+        "host_backed": true,
+        "cached_weight_bytes": 462422016,
+        "weight_cache_hits": 4
+      },
+      "gpu_operators": {
+        "aten.mm.default": 6
+      },
+      "cpu_operators": {
+        "aten.t.default": 6,
+        "aten.view.default": 6,
+        "aten._unsafe_view.default": 6,
+        "aten.split.Tensor": 3,
+        "aten.silu.default": 3,
+        "aten.mul.Tensor": 3
+      },
+      "hybrid_execution": true
+    }
+  },
+  "fp16_ff_experiment": {
+    "scope": "Real BF16 FF block with FP16 Vulkan projections; not full-model parity",
+    "cpu_seconds": 0.49301890000060666,
+    "vulkan_seconds": [
+      3.1772193000006155,
+      2.28035970000019,
+      2.2466996000002837
+    ],
+    "finite": true,
+    "max_error": 2.0,
+    "mean_error": 0.003418218344449997,
+    "relative_rms": 0.0009671702864579856,
+    "statistics": {
+      "vulkan": {
+        "device": "Vulkan0",
+        "matmul_calls": 6,
+        "wall_seconds": 4.050519799999165,
+        "transfer_bytes": 957874176,
+        "peak_buffer_bytes": 567017472,
+        "host_backed": true,
+        "cached_weight_bytes": 462422016,
+        "weight_cache_hits": 4
+      },
+      "gpu_operators": {
+        "aten.mm.default": 6
+      },
+      "cpu_operators": {
+        "aten.t.default": 6,
+        "aten.view.default": 6,
+        "aten._unsafe_view.default": 6,
+        "aten.split.Tensor": 3,
+        "aten.silu.default": 3,
+        "aten.mul.Tensor": 3
+      },
+      "hybrid_execution": true,
+      "projection_policy": "experimental BF16-to-FP16"
+    }
+  },
+  "bf16_real_ff_check": {
+    "passed": false,
+    "mismatched_elements": 3,
+    "total_elements": 4128768,
+    "rtol": 0.04,
+    "atol": 0.02,
+    "scope": "768-token FF layer only"
+  },
+  "strict_vulkan_sampling": {
+    "completed": false,
+    "reached_block": 9,
+    "step": 1,
+    "reason": "Stopped for speed; later block intervals about 8s",
+    "estimated_8_step_seconds": 3600,
+    "estimate_is_completed_benchmark": false
+  },
+  "rss_peak_gib": {
+    "encode": 14.81680679321289,
+    "sample": 1.98895263671875,
+    "decode": 1.3133354187011719
+  },
+  "minimum_available_ram_gib": {
+    "encode": 3.686065673828125,
+    "sample": 15.893623352050781,
+    "decode": 17.397724151611328
+  },
+  "model_asset_gib": 46.00787379592657,
+  "tested_versions": {
+    "python": "3.12.14",
+    "torch": "2.14.1+cpu",
+    "torchvision": "0.29.1",
+    "torchaudio": "2.11.0+cpu",
+    "transformers": "5.19.0",
+    "accelerate": "1.15.0",
+    "safetensors": "0.8.0",
+    "numpy": "2.5.4",
+    "psutil": "7.2.2",
+    "einops": "0.8.2",
+    "scipy": "1.18.1",
+    "pillow": "12.3.0",
+    "av": "19.0.1",
+    "comfy-kitchen": "0.2.33",
+    "comfy-aimdo": "0.5.3",
+    "sentencepiece": "0.2.2",
+    "pytest": "9.1.1",
+    "diffusers": "0.40.0.dev0"
+  },
+  "pinned_dependencies": {
+    "vdn": {
+      "url": "https://github.com/OpenVDN/vdn-minimax-h3.git",
+      "commit": "30b6b380c2482f3519469350810c2955d8847fd9",
+      "diffusers_subdirectory": "diffusers",
+      "license": "Apache-2.0"
+    },
+    "diffusers": {
+      "url": "https://github.com/huggingface/diffusers.git",
+      "base": "3a2f35d4efa4c059c8bfb3bc0d6c906264895c81",
+      "patched_tree": "37068ab7331d8b28f4cf718dba7015c742a306d2",
+      "patches_from": "pinned VDN diffusers_patches/*.patch"
+    },
+    "encoder": {
+      "comfy_url": "https://github.com/comfy-org/ComfyUI.git",
+      "comfy_commit": "421a1c245c682c04d4325ba365f40c834c66f5b0",
+      "implementation": "ComfyUI native H3 encoder only; no UI server or T8 custom node"
+    },
+    "sageattention": {
+      "url": "https://github.com/thu-ml/SageAttention.git",
+      "commit": "d1a57a546c3d395b1ffcbeecc66d81db76f3b4b5",
+      "version": "2.2.0",
+      "tested_sm120_wheel_sha256": "a89dc581440ec804408da6f6cdd84172950f79523e7dc2656fdfdc9b72a26170",
+      "tested_sm120_wheel_scope": "Historical CUDA 12.9 wheel; setup builds or verifies a local wheel for the selected Torch/CUDA/GPU."
+    },
+    "models": {
+      "vdn_repo": "OpenVDN/vdn-minimax-h3",
+      "vdn_revision": "751739ee5b9e3ac802dca5d5111075fdaeb47885",
+      "vdn_modelscope": {
+        "repo": "OpenVDN/vdn-minimax-h3",
+        "revision": "3674e3a5183da3782bdd7e57b83adb8b99a759ba",
+        "hf_revision": "751739ee5b9e3ac802dca5d5111075fdaeb47885",
+        "probe_file": "h3-base/transformer/diffusion_pytorch_model-00001-of-00014.safetensors"
+      },
+      "encoder_repo": "t8star/Vdn-Minimax-H3-Comfy",
+      "encoder_revision": "d6aa5dfc669a749dc9364a36f3b6d4d1545a53e8",
+      "encoder_file": "text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "encoder_sha256": "35a88d51044231fe332301d7a62aa81e3f2cba62febeb446e2c1e3e0ef76f2c6",
+      "edge_modelscope": {
+        "repo": "OpenVDN/vdn-minimax-h3-edge",
+        "revision": "7832055a557c968ba86fa000374337560193adcf",
+        "hf_revision": "5e6ecc39f472f98ca7493000df49a4f712efb61a",
+        "hf_snapshot_revision": "d95329e1441404e95082053b148ba5f8d3dd754f",
+        "probe_file": "cache/blocks/00.safetensors"
+      },
+      "edge_modelscope_variants": {
+        "rowwise": {
+          "repo": "OpenVDN/vdn-minimax-h3-edge",
+          "revision": "5be1ff90c02c9b1c1ce7300d6a803931732e6ab0",
+          "hf_revision": "ae041e5aec51f8516a3416bd86d579cb29c4c796",
+          "probe_file": "rowwise/cache/blocks/00.safetensors"
+        },
+        "int8_convrot": {
+          "repo": "OpenVDN/vdn-minimax-h3-edge",
+          "revision": "17738b37839b490c5ae95246d8cb41893e76d887",
+          "hf_revision": "da37681f5a1f7015fdb63482142b865111b687d3",
+          "probe_file": "int8-convrot/cache/blocks/00.safetensors"
+        },
+        "community_sigma3": {
+          "repo": "OpenVDN/vdn-minimax-h3-edge",
+          "hf_revision": "4bbe518a5b24aa596f1e262e5f1a08062790670b",
+          "revision": "bbb2b06aded5536f42294fe4f3449240f86a5fdd"
+        },
+        "sampling_levels": {
+          "repo": "OpenVDN/vdn-minimax-h3-edge",
+          "hf_revision": "0cd66b30a58021012def78b0340caf131e0df5c2",
+          "revision": "1bff010a4fd429be95455fb0dbb2a34037f1bccd"
+        },
+        "reference_audio": {
+          "repo": "OpenVDN/vdn-minimax-h3-edge",
+          "hf_revision": "b3a8dd8d4cf215b3a90bcc20b4362318f5f4f158",
+          "revision": "fe57b4d98c95f9c6798431ff4d37515fa1192d97"
+        },
+        "sampling_steps": {
+          "repo": "OpenVDN/vdn-minimax-h3-edge",
+          "hf_revision": "8f6860a5e5de2844bb9af7fa801e0fafb2376bd5",
+          "revision": "f892657d413ea3e1033cab882f6fb8d1d33db61b"
+        }
+      },
+      "latent_upscaler": {
+        "repo": "LBH-123-AI/Minimax_h3_latent_Upscaler",
+        "revision": "3f941d5d182014dd5c0a5e16330420ee2d4aa0c6",
+        "file": "minimax_h3_latent_upscaler_3d_conv_v1/minimax_h3_latent_upscaler_3d_conv_v1_fp16.safetensors",
+        "bytes": 690592672,
+        "sha256": "043e5a48e161610ef6c3ea974645220354d06fa618abca15f76d084812eb55c2",
+        "role": "latent_upscaler",
+        "license": "MIT"
+      }
+    },
+    "tested": {
+      "python": "3.12.3",
+      "torch": "2.13.0+cu130",
+      "triton": "3.7.1",
+      "sageattention": "2.2.0",
+      "transformers": "5.15.0",
+      "environment_layout": "unified",
+      "scope": "SM120 kernel checks and full requests; see benchmarks/2026-09-10-unified-environment.json"
+    },
+    "model_license": "MiniMax H3 Community License; weights are downloaded separately",
+    "tested_legacy": {
+      "python": "3.12.3",
+      "torch": "2.13.0+cu129",
+      "triton": "3.7.1",
+      "sageattention": "2.2.0",
+      "flash-attn-4": "4.0.0b26"
+    }
+  }
+}

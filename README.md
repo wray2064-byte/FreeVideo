@@ -1,3 +1,7 @@
+> **Experimental fork branch:** [Windows CPU/Vulkan adapter and Legion Go 2 benchmarks](docs/Vulkan-experimental.md).
+> This is a host-backed research prototype, not official AMD support or a fully GPU-native implementation.
+> The completed clip used CPU sampling/decoding; Vulkan was slower on the tested Radeon 890M.
+
 <div align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="web/assets/freevideo.svg">

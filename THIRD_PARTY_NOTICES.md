@@ -1,5 +1,14 @@
 # Third-party notices
 
+The experimental Windows Vulkan adapter calls the ggml C API from
+[stable-diffusion.cpp](https://github.com/leejet/stable-diffusion.cpp) release
+`master-959-d637cfb`. [ggml](https://github.com/ggml-org/ggml) and
+stable-diffusion.cpp use the MIT license. Runtime binaries are downloaded
+separately, not committed by this branch; preserve their upstream notices when
+redistributing a runtime. The adapter also reuses FreeVideo's Apache-2.0 streamed
+reference lifecycle and the dependencies credited below. No model weights are
+included in this branch.
+
 FreeVideo code uses [Apache-2.0](LICENSE). Its dependencies and models retain their own licenses.
 
 | Component | License |

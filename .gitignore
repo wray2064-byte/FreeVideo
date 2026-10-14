@@ -53,6 +53,9 @@ engine-gpu-*.lock
 /tools/
 /tuning/
 /input-cache/
+/experimental-data/
+/experimental-models/
+/experimental-output/
 /comfyui.json
 # ComfyUI that ./setup.sh installs beside the engine, and the service that runs it.
 /ComfyUI/

@@ -1,0 +1,25 @@
+# CPU torch and torchaudio are installed separately from the PyTorch CPU index.
+torchvision==0.29.1
+transformers==5.19.0
+accelerate==1.15.0
+safetensors==0.8.0
+numpy==2.5.4
+psutil==7.2.2
+einops==0.8.2
+scipy==1.18.1
+pillow==12.3.0
+av==19.0.1
+comfy-kitchen==0.2.33
+comfy-aimdo==0.5.3
+sentencepiece==0.2.2
+aiohttp==3.14.5
+pyyaml==6.0.3
+requests==2.34.2
+simpleeval==1.0.8
+blake3==1.0.11
+pydantic==2.14.1
+pydantic-settings==2.15.0
+torchsde==0.2.6
+kornia==0.8.3
+spandrel==0.4.2
+pytest==9.1.1
